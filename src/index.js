@@ -82,6 +82,26 @@ class RazorNodeList {
       node.removeEventListener(event, callback);
     });
   }
+
+  /**
+   *
+   * Function to get/set value of input elements
+   * @param {String} inputValue The value to be set
+   * @returns Returns value for getter and nodeList for setter
+   */
+  value(inputValue) {
+    if (typeof inputValue === 'string') {
+      this.#forEachNode((node) => {
+        node.value = inputValue;
+      });
+
+      return this;
+    } else if (typeof inputValue === 'undefined') {
+      return this.nodeList[0]?.value;
+    } else {
+      throw new Error(`Type of inputValue cannot be ${typeof inputValue}`);
+    }
+  }
 }
 
 /**
