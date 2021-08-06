@@ -168,3 +168,14 @@ $razor.getState = function (key, useSessionStorage = false) {
     return localStorage.getItem(key);
   }
 };
+
+/**
+ * 
+ * Function to consume and use REST api
+ * @param {String} url The url to which the api request is to be made
+ * @param {Object} options The config object
+ * @returns A Promise which resolves into api response
+ */
+$razor.api = function (url, options) {
+  return fetch(url, options);
+};
