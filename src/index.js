@@ -53,6 +53,30 @@ class RazorNodeList {
       node.classList.remove(className);
     });
   }
+
+  /**
+   *
+   * Function to add an event listener to the elements
+   * @param {String} event Event to be listened
+   * @param {Function} callback Callback function which is to be executed on the event trigger
+   */
+  on(event, callback) {
+    this.#forEachNode((node) => {
+      node.addEventListener(event, callback);
+    });
+  }
+
+  /**
+   *
+   * Function to remove an event listener from the elements
+   * @param {String} event Event to be listened
+   * @param {Function} callback Callback function which is to be removed
+   */
+  off(event, callback) {
+    this.#forEachNode((node) => {
+      node.removeEventListener(event, callback);
+    });
+  }
 }
 
 /**
