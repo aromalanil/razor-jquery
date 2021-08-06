@@ -44,7 +44,7 @@ class RazorNodeList {
    * Function to remove css class from the elements
    * @param {String} className Class name to be removed from the elements
    */
-   removeClass(className) {
+  removeClass(className) {
     this.#forEachNode((node) => {
       node.classList.remove(className);
     });
@@ -61,3 +61,38 @@ function $razor(selector) {
   const nodeList = document.querySelectorAll(selector);
   return new RazorNodeList(nodeList);
 }
+
+/**
+ * Function to save a value in the local storage or session storage
+ * @param {String} key Key which represents the value
+ * @param {String} value Value to be stored
+ * @param {Boolean} useSessionStorage Boolean representing wether to use session storage or not
+ */
+$razor.setState = function (key, value, useSessionStorage = false) {
+  if (typeof key !== 'string' || typeof value !== 'string') {
+    throw new Error('Both key and value should be of type string');
+  }
+
+  if (useSessionStorage) {
+    sessionStorage.setItem(key, value);
+  } else {
+    localStorage.setItem(key, value);
+  }
+};
+
+/**
+ * Function to retrieve a value from the local storage or session storage
+ * @param {String} key Key which represents the value
+ * @param {Boolean} useSessionStorage Boolean representing wether to use session storage or not
+ */
+$razor.getState = function (key, useSessionStorage = false) {
+  if (typeof key !== 'string') {
+    throw new Error('Key should be of type string');
+  }
+
+  if (useSessionStorage) {
+    return sessionStorage.getItem(key);
+  } else {
+    return localStorage.getItem(key);
+  }
+};
