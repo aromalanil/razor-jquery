@@ -1,0 +1,11 @@
+{
+  "name": "razor-jquery",
+  "version": "1.0.0",
+  "description": "A jquery like library made using vanilla js",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aromal Anil <aromal.anil@razorpay.com>",
+  "license": "ISC"
+}
