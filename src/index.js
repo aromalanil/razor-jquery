@@ -85,6 +85,25 @@ class RazorNodeList {
 
   /**
    *
+   * Function to add attributes to elements
+   * @param {String} name Name of the attribute
+   * @param {String} value Value of the attribute
+   * @returns The modified dom element list
+   */
+  setProps(name, value) {
+    if (typeof name !== 'string' || typeof value !== 'string') {
+      throw new Error('Both name and value should be of type string');
+    }
+
+    this.#forEachNode((node) => {
+      node.setAttribute(name, value);
+    });
+
+    return this;
+  }
+
+  /**
+   *
    * Function to get/set value of input elements
    * @param {String} inputValue The value to be set
    * @returns Returns value for getter and nodeList for setter
