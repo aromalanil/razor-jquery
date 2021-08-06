@@ -1,6 +1,6 @@
 /**
  * Represents a list of DOM elements
- * with extra utility methods 
+ * with extra utility methods
  */
 class RazorNodeList {
   constructor(nodeList) {
@@ -17,7 +17,7 @@ class RazorNodeList {
   }
 
   /**
-   * 
+   *
    * @param {Object} style A style object with property names and its corresponding value
    * @returns The list of DOM elements with updated style
    */
@@ -29,10 +29,30 @@ class RazorNodeList {
     }
     return this;
   }
+
+  /**
+   * Function to add css class to the elements
+   * @param {String} className Class name to be added to the elements
+   */
+  addClass(className) {
+    this.#forEachNode((node) => {
+      node.classList.add(className);
+    });
+  }
+
+  /**
+   * Function to remove css class from the elements
+   * @param {String} className Class name to be removed from the elements
+   */
+   removeClass(className) {
+    this.#forEachNode((node) => {
+      node.classList.remove(className);
+    });
+  }
 }
 
 /**
- * 
+ *
  * A utility function similar to Jquery
  * @param {String} selector The query to select the dom elements (Must be a valid CSS Selector)
  * @returns All elements matching the selector
