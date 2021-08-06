@@ -7,6 +7,10 @@ class RazorNodeList {
     this.nodeList = nodeList;
   }
 
+  get length() {
+    return this.nodeList.length;
+  }
+
   /**
    * A private method to iterate over each node in the list
    * and execute a callback
@@ -44,7 +48,7 @@ class RazorNodeList {
    * Function to remove css class from the elements
    * @param {String} className Class name to be removed from the elements
    */
-   removeClass(className) {
+  removeClass(className) {
     this.#forEachNode((node) => {
       node.classList.remove(className);
     });
