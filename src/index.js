@@ -7,6 +7,10 @@ class RazorNodeList {
     this.nodeList = nodeList;
   }
 
+  get length() {
+    return this.nodeList.length;
+  }
+
   /**
    * A private method to iterate over each node in the list
    * and execute a callback
