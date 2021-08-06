@@ -31,6 +31,7 @@ class RazorNodeList {
         node.style[key] = value;
       });
     }
+
     return this;
   }
 
@@ -42,6 +43,8 @@ class RazorNodeList {
     this.#forEachNode((node) => {
       node.classList.add(className);
     });
+
+    return this;
   }
 
   /**
@@ -52,6 +55,8 @@ class RazorNodeList {
     this.#forEachNode((node) => {
       node.classList.remove(className);
     });
+
+    return this;
   }
 
   /**
